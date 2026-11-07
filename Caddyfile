@@ -1,0 +1,19 @@
+:{$PORT:80} {
+    root * /app
+    encode zstd gzip
+
+    # No exponer configuración, includes ni scripts internos
+    @private {
+        path /config/* /includes/* /libs/* /.env* /database*.sql /Dockerfile /Caddyfile /php.ini /vercel.json
+    }
+    respond @private 404
+
+    # Nunca ejecutar PHP dentro de carpetas de subida
+    @uploads_php {
+        path /uploads/*.php /uploads/*/*.php /uploads/*/*/*.php /repositorio/uploads/*.php /repositorio/uploads/*/*.php
+    }
+    respond @uploads_php 404
+
+    # Sirve archivos estáticos y ejecuta PHP (incluye index.php por carpeta)
+    php_server
+}

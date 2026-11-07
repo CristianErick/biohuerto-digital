@@ -1,0 +1,284 @@
+/* ============================================================
+   ADMIN PANEL — Estilos del Panel de Administración
+   Sin Emojis · Iconos SVG · Paleta Moderna
+   ============================================================ */
+
+.admin-body {
+  background: #f8fafc;
+}
+
+/* ---------- Topbar ---------- */
+.admin-topbar {
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.admin-topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.admin-topbar__icon {
+  display: flex;
+  align-items: center;
+}
+
+.admin-topbar__title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.admin-topbar__title small {
+  background: rgba(255,255,255,0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.admin-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-topbar__user {
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-topbar__badge {
+  background: var(--color-amber-soft);
+  color: var(--color-amber-dark);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.admin-topbar__link {
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.admin-topbar__link:hover { background: rgba(255,255,255,0.15); }
+.admin-topbar__logout:hover { background: rgba(225,29,72,0.3); }
+
+/* ---------- Nav Admin ---------- */
+.admin-nav {
+  background: #065f46;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.admin-nav__toggle {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: var(--font-main);
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.admin-nav__menu {
+  display: none;
+  flex-direction: column;
+  padding-bottom: 8px;
+  list-style: none;
+}
+
+.admin-nav__menu.active { display: flex; }
+
+.admin-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.85);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: background 0.2s;
+}
+
+.admin-nav__link:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .admin-nav__toggle { display: none; }
+  .admin-nav__menu {
+    display: flex !important;
+    flex-direction: row;
+    gap: 4px;
+    padding-bottom: 0;
+  }
+}
+
+/* ---------- Content ---------- */
+.admin-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  min-height: 65vh;
+}
+
+.admin-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-page-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary-dark);
+}
+
+/* ---------- Cards / Boxes ---------- */
+.admin-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.admin-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+/* ---------- Dashboard Stats ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow-xs);
+  border-top: 4px solid var(--color-primary);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card:nth-child(2) { border-top-color: var(--color-sky); }
+.stat-card:nth-child(3) { border-top-color: var(--color-indigo); }
+.stat-card:nth-child(4) { border-top-color: var(--color-amber); }
+
+.stat-card__icon { margin-bottom: 8px; }
+.stat-card__number { font-size: 2.2rem; font-weight: 800; color: var(--color-text); line-height: 1.1; }
+.stat-card__label { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px; font-weight: 600; }
+
+/* ---------- Tables ---------- */
+.admin-table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
+  background: #fff;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.admin-table th {
+  background: #f1f5f9;
+  color: var(--color-text);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.admin-table tbody tr:hover { background: #f8fafc; }
+
+.admin-table img.thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--color-text-muted);
+}
+.empty-state__icon { margin-bottom: 12px; }
+.empty-state__text { font-size: 0.95rem; margin-bottom: 16px; }
+
+/* Footer Admin */
+.admin-footer {
+  text-align: center;
+  padding: 16px;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  margin-top: 40px;
+  border-top: 1px solid var(--color-border);
+}

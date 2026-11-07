@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="potGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+    <linearGradient id="sproutGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="sproutGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <filter id="mascotShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#mascotShadow)">
+    <!-- Macetita de terracota -->
+    <path d="M26 58 L32 88 C 33 91, 67 91, 68 88 L 74 58 Z" fill="url(#potGrad)"/>
+    <!-- Borde superior de la maceta -->
+    <rect x="22" y="52" width="56" height="10" rx="4" fill="#fb923c"/>
+
+    <!-- Carita feliz en la maceta -->
+    <!-- Ojos brillantes -->
+    <circle cx="42" cy="70" r="3.5" fill="#1e293b"/>
+    <circle cx="43" cy="69" r="1.2" fill="#ffffff"/>
+    <circle cx="58" cy="70" r="3.5" fill="#1e293b"/>
+    <circle cx="59" cy="69" r="1.2" fill="#ffffff"/>
+    <!-- Mejillas rosadas -->
+    <ellipse cx="36" cy="74" rx="3.5" ry="2" fill="#f43f5e" opacity="0.45"/>
+    <ellipse cx="64" cy="74" rx="3.5" ry="2" fill="#f43f5e" opacity="0.45"/>
+    <!-- Sonrisa -->
+    <path d="M46 76 Q 50 81, 54 76" stroke="#1e293b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+    <!-- Tallo verde -->
+    <path d="M50 54 Q 49 32, 50 20" stroke="#16a34a" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+    <!-- Hoja izquierda grande y jugosa -->
+    <path d="M50 36 C 40 38, 16 32, 18 16 C 32 14, 46 25, 50 36 Z" fill="url(#sproutGrad1)"/>
+    <path d="M22 20 Q 34 24, 46 32" stroke="#86efac" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+    <!-- Hoja derecha -->
+    <path d="M50 30 C 58 32, 82 26, 80 12 C 68 10, 56 20, 50 30 Z" fill="url(#sproutGrad2)"/>
+    <path d="M74 15 Q 64 20, 54 27" stroke="#bbf7d0" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

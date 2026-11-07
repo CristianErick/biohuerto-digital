@@ -1,0 +1,19 @@
+# Variables sensibles y archivos locales
+.env
+.env.local
+.env.production
+
+# Subidas locales (se guardan en MySQL en producción)
+uploads/plantas/*
+uploads/qrs/*
+uploads/archivos/*
+repositorio/uploads/*
+!uploads/.htaccess
+!repositorio/uploads/.htaccess
+
+# Temporales
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+_smoke*

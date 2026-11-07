@@ -1,0 +1,20 @@
+# Proteger la carpeta uploads de ejecución de scripts PHP
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Solo permitir acceso a archivos de imagen y documentos
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule \.(php|phtml|php3|php4|php5|phps)$ - [F,L]
+</IfModule>
+
+# Bloquear ejecución de PHP
+<FilesMatch "\.php$">
+  <IfModule mod_php.c>
+    php_flag engine off
+  </IfModule>
+  Deny from all
+</FilesMatch>
+
+# Permitir archivos de imagen y documentos
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|pdf|doc|docx|ppt|pptx)$">
+  Allow from all
+</FilesMatch>

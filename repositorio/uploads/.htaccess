@@ -1,0 +1,11 @@
+# Bloquear acceso directo a los archivos subidos por URL.
+# Solo se sirven a través del script PHP de descarga.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule .* - [F,L]
+</IfModule>
+
+# Fallback si mod_rewrite no está disponible
+<IfModule !mod_rewrite.c>
+  Deny from all
+</IfModule>

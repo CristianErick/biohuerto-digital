@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="qrBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="phoneShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#064e3b" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <circle cx="80" cy="80" r="76" fill="url(#qrBg)"/>
+
+  <!-- Celular smartphone -->
+  <g transform="translate(48, 26)" filter="url(#phoneShadow)">
+    <rect x="0" y="0" width="64" height="108" rx="12" fill="url(#phoneGrad)"/>
+    <!-- Pantalla -->
+    <rect x="4" y="6" width="56" height="96" rx="8" fill="#ffffff"/>
+
+    <!-- Cámara selfie -->
+    <circle cx="32" cy="11" r="2" fill="#64748b"/>
+
+    <!-- Código QR en la pantalla -->
+    <g transform="translate(13, 24)">
+      <!-- Esquinas del QR -->
+      <rect x="0" y="0" width="14" height="14" rx="2" fill="#059669"/>
+      <rect x="3" y="3" width="8" height="8" fill="#ffffff"/>
+      <rect x="5" y="5" width="4" height="4" fill="#059669"/>
+
+      <rect x="24" y="0" width="14" height="14" rx="2" fill="#059669"/>
+      <rect x="27" y="3" width="8" height="8" fill="#ffffff"/>
+      <rect x="29" y="5" width="4" height="4" fill="#059669"/>
+
+      <rect x="0" y="24" width="14" height="14" rx="2" fill="#059669"/>
+      <rect x="3" y="27" width="8" height="8" fill="#ffffff"/>
+      <rect x="5" y="29" width="4" height="4" fill="#059669"/>
+
+      <!-- Píxeles del centro -->
+      <rect x="18" y="18" width="4" height="4" fill="#10b981"/>
+      <rect x="26" y="24" width="6" height="4" fill="#059669"/>
+      <rect x="32" y="30" width="6" height="6" fill="#059669"/>
+      <rect x="18" y="32" width="5" height="5" fill="#10b981"/>
+
+      <!-- Línea de escaneo láser verde -->
+      <line x1="-2" y1="20" x2="40" y2="20" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Botón / indicador de escaneo -->
+    <rect x="12" y="74" width="40" height="16" rx="8" fill="#10b981"/>
+    <text x="32" y="85" font-family="'Nunito', sans-serif" font-weight="800" font-size="8" fill="#ffffff" text-anchor="middle">ESCANEAR</text>
+  </g>
+</svg>

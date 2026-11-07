@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="repoBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#eef2ff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <linearGradient id="folderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4338ca"/>
+    </linearGradient>
+    <linearGradient id="folderTab" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="pencilYellow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#facc15"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+    <filter id="repoShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#312e81" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="400" height="240" rx="20" fill="url(#repoBg)"/>
+
+  <!-- Clips y detalles de fondo -->
+  <path d="M50 60 C 50 45, 65 45, 65 60 L 65 95 C 65 105, 42 105, 42 95 L 42 65 C 42 58, 55 58, 55 65 L 55 90" fill="none" stroke="#a5b4fc" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="340" cy="55" r="4" fill="#818cf8"/>
+  <circle cx="360" cy="75" r="3" fill="#c7d2fe"/>
+
+  <!-- Carpeta Escolar Grande con Documentos -->
+  <g transform="translate(100, 65)" filter="url(#repoShadow)">
+    <!-- Solapa trasera de la carpeta -->
+    <path d="M 10 30 H 70 L 85 45 H 190 A 10 10 0 0 1 200 55 V 135 A 10 10 0 0 1 190 145 H 10 A 10 10 0 0 1 0 135 V 40 A 10 10 0 0 1 10 30 Z" fill="url(#folderTab)"/>
+
+    <!-- Documento Trasero -->
+    <g transform="translate(30, 10)">
+      <rect x="0" y="0" width="120" height="110" rx="6" fill="#f1f5f9"/>
+      <line x1="15" y1="20" x2="70" y2="20" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+      <line x1="15" y1="32" x2="105" y2="32" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="15" y1="42" x2="95" y2="42" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="15" y1="52" x2="100" y2="52" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- Documento Frontal con sello A+ -->
+    <g transform="translate(45, 22)">
+      <rect x="0" y="0" width="125" height="110" rx="6" fill="#ffffff" filter="url(#repoShadow)"/>
+      <line x1="18" y1="22" x2="80" y2="22" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+      <line x1="18" y1="35" x2="108" y2="35" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="18" y1="47" x2="100" y2="47" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="18" y1="59" x2="85" y2="59" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- Sello A+ rojo escolar -->
+      <circle cx="95" cy="78" r="16" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="2,2"/>
+      <text x="88" y="84" font-family="'Baloo 2', cursive, sans-serif" font-weight="800" font-size="16" fill="#ef4444">A+</text>
+    </g>
+
+    <!-- Solapa delantera de la carpeta -->
+    <path d="M 0 55 H 200 L 195 140 A 10 10 0 0 1 185 150 H 15 A 10 10 0 0 1 5 140 Z" fill="url(#folderGrad)"/>
+    <!-- Brillo en borde -->
+    <line x1="15" y1="58" x2="185" y2="58" stroke="#a5b4fc" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Lápiz escolar alegre cruzado -->
+  <g transform="translate(50, 115) rotate(-30)" filter="url(#repoShadow)">
+    <!-- Cuerpo del lápiz -->
+    <rect x="0" y="0" width="90" height="18" fill="url(#pencilYellow)"/>
+    <line x1="0" y1="6" x2="90" y2="6" stroke="#eab308" stroke-width="1.5"/>
+    <line x1="0" y1="12" x2="90" y2="12" stroke="#ca8a04" stroke-width="1.5"/>
+    <!-- Borrador rosa -->
+    <rect x="-20" y="0" width="20" height="18" rx="4" fill="#fb7185"/>
+    <rect x="-6" y="0" width="8" height="18" fill="#cbd5e1"/>
+    <!-- Punta de madera y grafito -->
+    <polygon points="90,0 112,9 90,18" fill="#fed7aa"/>
+    <polygon points="104,6 112,9 104,12" fill="#334155"/>
+  </g>
+
+  <!-- Birrete / Gorro de graduación flotante -->
+  <g transform="translate(285, 95)" filter="url(#repoShadow)">
+    <polygon points="35,10 70,25 35,40 0,25" fill="#1e1b4b"/>
+    <path d="M12 32 V 46 C 12 56, 58 56, 58 46 V 32 Z" fill="#312e81"/>
+    <!-- Borla dorada -->
+    <line x1="35" y1="25" x2="68" y2="35" stroke="#f59e0b" stroke-width="2.5"/>
+    <circle cx="68" cy="38" r="4" fill="#f59e0b"/>
+  </g>
+</svg>

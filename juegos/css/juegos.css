@@ -1,0 +1,491 @@
+/* ═══ Juegos Didácticos — Estilos Específicos ═══ */
+
+/* Juego: Trivia */
+.trivia-modal {
+  max-width: 500px;
+}
+
+.trivia-question {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.trivia-question__text {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  line-height: 1.5;
+}
+
+.trivia-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.trivia-option {
+  padding: var(--space-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: left;
+}
+
+.trivia-option:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.trivia-option.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.trivia-option.correct {
+  border-color: var(--color-success);
+  background: var(--color-success-soft);
+  color: var(--color-success-dark);
+}
+
+.trivia-option.wrong {
+  border-color: var(--color-danger);
+  background: var(--color-danger-soft);
+  color: var(--color-danger-dark);
+}
+
+.trivia-progress {
+  margin-bottom: var(--space-md);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.trivia-score {
+  font-size: 0.875rem;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+.trivia-result {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.trivia-result__score {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-primary-dark);
+  margin: var(--space-xs) 0;
+}
+
+.trivia-result__message {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+/* Juego: Sopa de Letras */
+.sopa-modal {
+  max-width: 600px;
+}
+
+.sopa-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 2px;
+  background: var(--color-border);
+  padding: 2px;
+  border-radius: var(--radius-md);
+  margin: 0 auto var(--space-lg);
+  max-width: 480px;
+  width: 100%;
+}
+
+.sopa-cell {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: clamp(0.65rem, 3.2vw, 1.15rem);
+  font-weight: 700;
+  color: var(--color-text);
+  cursor: pointer;
+  user-select: none;
+  transition: var(--transition-fast);
+}
+
+.sopa-cell:hover {
+  background: var(--color-primary-soft);
+}
+
+.sopa-cell.selected {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.sopa-cell.found {
+  background: var(--color-success);
+  color: #ffffff;
+  cursor: default;
+}
+
+.sopa-cell.wrong {
+  background: var(--color-danger);
+  color: #ffffff;
+}
+
+.sopa-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  justify-content: center;
+}
+
+.sopa-word {
+  padding: 4px 10px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #065f46;
+}
+
+.sopa-word.found {
+  background: var(--color-success-soft);
+  color: var(--color-success-dark);
+  border-color: var(--color-success);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.sopa-instructions {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* Juego: Clasifica y Recicla */
+.recicla-modal {
+  max-width: 600px;
+}
+
+.recicla-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.recicla-instructions {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.recicla-containers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.recicla-container {
+  background: var(--color-surface);
+  border: 3px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: var(--transition-fast);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.recicla-container:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.recicla-container.active,
+.recicla-container.esperando {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border-style: solid;
+  cursor: pointer;
+}
+
+.recicla-container__icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-xs);
+}
+
+.recicla-container__name {
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.recicla-container__count {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+.recicla-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--space-md);
+}
+
+.recicla-item {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  cursor: grab;
+  transition: var(--transition-fast);
+  user-select: none;
+}
+
+.recicla-item:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.recicla-item:active {
+  cursor: grabbing;
+}
+
+.recicla-item__icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-xs);
+}
+
+.recicla-item__name {
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: 0.85rem;
+}
+
+.recicla-item.dragging {
+  opacity: 0.5;
+  border-color: var(--color-primary);
+}
+
+.recicla-item.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.25);
+  transform: scale(1.04);
+}
+
+.recicla-item.error {
+  border-color: var(--color-danger);
+  background: var(--color-danger-soft);
+  animation: reciclaShake 0.4s ease;
+}
+
+@keyframes reciclaShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.recicla-item.dropped {
+  opacity: 0.6;
+  border-color: var(--color-success);
+  background: var(--color-success-soft);
+  cursor: default;
+  transform: none;
+}
+
+.recicla-feedback {
+  margin-top: var(--space-lg);
+  text-align: center;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  display: none;
+}
+
+.recicla-feedback.show {
+  display: block;
+}
+
+.recicla-feedback.info {
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+.recicla-feedback.success {
+  background: var(--color-success-soft);
+  border: 1px solid var(--color-success);
+  color: var(--color-success-dark);
+}
+
+.recicla-feedback.error {
+  background: var(--color-danger-soft);
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger-dark);
+}
+
+/* Modal genérico para juegos */
+.juego-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.juego-modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+}
+
+/* Pantalla de victoria dentro del modal */
+.juego-resultado {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg);
+  min-height: 340px;
+  gap: var(--space-sm);
+}
+
+.juego-resultado.show {
+  display: flex;
+}
+
+.juego-resultado__icon {
+  color: var(--color-warning, #b45309);
+  background: #fef3c7;
+  border-radius: var(--radius-full);
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+}
+
+.juego-resultado__title {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  color: var(--color-primary-dark);
+  margin: 0;
+}
+
+.juego-resultado__text {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.juego-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.juego-modal__title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.juego-modal__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.juego-modal__close:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.juego-modal__body {
+  padding: var(--space-lg);
+}
+
+.juego-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-hover);
+}
+
+/* Timer y score en juegos */
+.juego-hud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.juego-timer {
+  color: var(--color-primary-dark);
+}
+
+.juego-score {
+  color: var(--color-indigo-dark);
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="siemBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#dcfce7"/>
+    </linearGradient>
+    <linearGradient id="trowelBlade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="76" fill="url(#siemBg)"/>
+  <!-- Montículo de tierra -->
+  <path d="M20 125 Q 80 85, 140 125 Z" fill="#78350f"/>
+  <ellipse cx="80" cy="120" rx="45" ry="12" fill="#92400e"/>
+  <!-- Semillita germinando -->
+  <circle cx="80" cy="115" r="5" fill="#facc15"/>
+  <path d="M80 115 Q 80 92, 70 82 C 78 80, 85 86, 81 115 Z" fill="#22c55e"/>
+  <path d="M80 115 Q 80 88, 92 84 C 90 94, 85 96, 80 115 Z" fill="#4ade80"/>
+  <!-- Palita de jardinería -->
+  <g transform="translate(100, 45) rotate(25)">
+    <!-- Mango de madera -->
+    <rect x="0" y="0" width="12" height="35" rx="5" fill="#d97706"/>
+    <rect x="2" y="30" width="8" height="10" fill="#475569"/>
+    <!-- Hoja de metal -->
+    <path d="M-2 40 C -8 55, 6 78, 6 78 C 6 78, 20 55, 14 40 Z" fill="url(#trowelBlade)"/>
+  </g>
+</svg>
