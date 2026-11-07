@@ -29,9 +29,10 @@ include __DIR__ . '/../includes/header.php';
     height: auto;
   }
   .bio-mobile-container {
-    max-width: 900px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 var(--space-md) var(--space-2xl);
+    box-sizing: border-box;
   }
 
   /* Botón Destacado Escanear QR en Huerto */
@@ -48,6 +49,8 @@ include __DIR__ . '/../includes/header.php';
     text-align: left;
     cursor: pointer;
     transition: var(--transition);
+    box-sizing: border-box;
+    max-width: 100%;
   }
 
   .qr-scanner-trigger:active,
@@ -96,12 +99,15 @@ include __DIR__ . '/../includes/header.php';
   .cuidados-scroll::-webkit-scrollbar { display: none; }
 
   .cuidado-item {
-    flex: 0 0 240px;
+    flex: 0 0 auto;
+    min-width: 200px;
+    max-width: 100%;
     background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-md);
     box-shadow: var(--shadow-xs);
+    box-sizing: border-box;
   }
 
   .cuidado-item__header {
@@ -148,6 +154,8 @@ include __DIR__ . '/../includes/header.php';
     display: flex;
     flex-direction: column;
     transition: var(--transition);
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .planta-card-mobile:hover {
@@ -191,6 +199,7 @@ include __DIR__ . '/../includes/header.php';
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    box-sizing: border-box;
   }
 
   .planta-card-mobile__title {
@@ -230,6 +239,7 @@ include __DIR__ . '/../includes/header.php';
     font-weight: 700;
     font-size: 0.95rem;
     transition: var(--transition);
+    box-sizing: border-box;
   }
 
   .planta-card-mobile__btn:hover {
@@ -253,17 +263,24 @@ include __DIR__ . '/../includes/header.php';
   .modal-sheet {
     background: #ffffff;
     width: 100%;
-    max-width: 440px;
+    max-width: min(440px, 100vw);
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
     box-shadow: var(--shadow-lg);
     text-align: center;
     animation: modalSlideUp 0.3s ease;
+    box-sizing: border-box;
   }
 
   @keyframes modalSlideUp {
     from { transform: translateY(20px); opacity: 0; }
     to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  /* Alertas */
+  .alert-banner {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 </style>
 
