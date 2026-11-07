@@ -20,6 +20,14 @@ include __DIR__ . '/../includes/header.php';
 
 <style>
   /* ---------- Estilos Móviles Optimizados para Biohuerto ---------- */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
   .bio-mobile-container {
     max-width: 900px;
     margin: 0 auto;
