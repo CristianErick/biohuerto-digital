@@ -82,7 +82,7 @@ unset($_SESSION['planta_msg'], $_SESSION['planta_msg_type']);
           Selecciona o arrastra una imagen aquí<br>
           <small>Formatos: JPG, PNG, WEBP &bull; Máximo 5 MB</small>
         </div>
-        <input type="file" id="foto" name="foto" accept="image/jpeg,image/png,image/gif,image/webp" required>
+        <input type="file" id="foto" name="foto" accept="image/jpeg,image/png,image/gif,image/webp" capture="environment" required>
       </div>
       <div class="form-file-preview" id="preview"></div>
     </div>
