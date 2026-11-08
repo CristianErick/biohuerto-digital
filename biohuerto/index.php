@@ -29,7 +29,8 @@ include __DIR__ . '/../includes/header.php';
     height: auto;
   }
   .bio-mobile-container {
-    max-width: 600px;
+    width: 100%;
+    max-width: 768px;
     margin: 0 auto;
     padding: 0 var(--space-md) var(--space-2xl);
     box-sizing: border-box;
