@@ -73,8 +73,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ─── Escáner QR con Cámara Automática ──────────────────
+  // La cámara ahora se muestra dentro de un recuadro de apuntado y
+  // decodifica el código QR (BarcodeDetector nativo o jsQR de respaldo),
+  // abriendo directamente la ficha de la planta detectada.
   const btnEscanearQR = document.getElementById('btnEscanearQR');
   const modalQR = document.getElementById('modalQR');
+
+  let escaneoActivo = false;
+  let escaneoStream = null;
+  let escaneoLoop = null;
+  let escaneoObserver = null;
+  let escaneoDetectado = false;
+  let escaneoTextoPrevio = null;
+  let escaneoJsQR = null;
 
   if (btnEscanearQR && modalQR) {
     btnEscanearQR.addEventListener('click', async () => {
@@ -83,41 +94,177 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function detenerEscaneoQR() {
+    if (escaneoLoop) { clearTimeout(escaneoLoop); escaneoLoop = null; }
+    if (escaneoStream) {
+      escaneoStream.getTracks().forEach(track => track.stop());
+      escaneoStream = null;
+    }
+    if (escaneoObserver) { escaneoObserver.disconnect(); escaneoObserver = null; }
+    const visor = modalQR && modalQR.querySelector('.qr-scan-visor');
+    if (visor && visor.parentNode) visor.parentNode.removeChild(visor);
+    escaneoActivo = false;
+    escaneoDetectado = false;
+    escaneoTextoPrevio = null;
+  }
+
+  function cargarJsQR() {
+    if (window.jsQR) return Promise.resolve(window.jsQR);
+    if (!escaneoJsQR) {
+      escaneoJsQR = new Promise((ok, mal) => {
+        const guion = document.createElement('script');
+        guion.src = 'https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js';
+        guion.onload = () => (window.jsQR ? ok(window.jsQR) : mal(new Error('jsQR')));
+        guion.onerror = () => mal(new Error('jsQR'));
+        document.head.appendChild(guion);
+      });
+    }
+    return escaneoJsQR;
+  }
+
+  // Convierte el texto leído en la URL de la ficha de la planta
+  function destinoDesdeQR(valor) {
+    if (/^https?:\/\//i.test(valor)) return valor;
+    if (/^\d+$/.test(valor)) return 'planta.php?id=' + valor;
+    if (/^[a-z][a-z0-9+.-]*:/i.test(valor)) return null;
+    if (/^[/?#]/.test(valor)) return valor;
+    if (/^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}([/?#]|$)/i.test(valor)) return 'https://' + valor;
+    return null;
+  }
+
+  function alEscanearQR(destino) {
+    escaneoDetectado = true;
+    if (navigator.vibrate) { try { navigator.vibrate(120); } catch (e) {} }
+    showToast('¡Código QR leído! Abriendo ficha…', 'success');
+    setTimeout(() => {
+      detenerEscaneoQR();
+      if (modalQR) modalQR.classList.remove('active');
+      window.location.assign(destino);
+    }, 300);
+  }
+
   async function iniciarCamaraQR() {
+    if (escaneoActivo) return;
+    escaneoActivo = true;
+    escaneoDetectado = false;
+
+    const modalSheet = modalQR && modalQR.querySelector('.modal-sheet');
+    if (!modalSheet || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      escaneoActivo = false;
+      showToast('Tu navegador no permite usar la cámara para escanear.', 'danger');
+      return;
+    }
+
+    // ── Visor con recuadro de apuntado ──
+    const visor = document.createElement('div');
+    visor.className = 'qr-scan-visor';
+    visor.style.cssText = 'position:relative;width:min(100%,300px,38vh);aspect-ratio:1/1;background:#0f172a;border-radius:12px;overflow:hidden;margin:0 auto 12px;';
+
     const video = document.createElement('video');
     video.setAttribute('playsinline', '');
-    video.style.width = '100%';
-    video.style.height = 'auto';
-    video.style.borderRadius = 'var(--radius-md)';
-    video.style.objectFit = 'cover';
+    video.muted = true;
+    video.autoplay = true;
+    video.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
 
-    const modalSheet = modalQR.querySelector('.modal-sheet');
-    if (modalSheet) {
-      // Insertar video antes del contenido existente
-      const firstChild = modalSheet.firstElementChild;
-      modalSheet.insertBefore(video, firstChild);
-    }
+    const marco = document.createElement('div');
+    marco.style.cssText = 'position:absolute;top:12%;right:12%;bottom:12%;left:12%;border-radius:12px;box-shadow:0 0 0 9999px rgba(15,23,42,0.55);pointer-events:none;';
+
+    [['top', 'left'], ['top', 'right'], ['bottom', 'left'], ['bottom', 'right']].forEach(pos => {
+      const v = pos[0];
+      const h = pos[1];
+      const borde = '4px solid var(--color-primary, #10b981)';
+      const esquina = document.createElement('div');
+      esquina.style.cssText = 'position:absolute;width:24px;height:24px;pointer-events:none;' +
+        v + ':4px;' + h + ':4px;' +
+        (v === 'top' ? 'border-top:' + borde + ';' : 'border-bottom:' + borde + ';') +
+        (h === 'left' ? 'border-left:' + borde + ';' : 'border-right:' + borde + ';') +
+        'border-' + v + '-' + h + '-radius:8px;';
+      marco.appendChild(esquina);
+    });
+
+    visor.appendChild(video);
+    visor.appendChild(marco);
+    modalSheet.insertBefore(visor, modalSheet.firstElementChild);
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: 'environment' }
+        video: { facingMode: { ideal: 'environment' } },
+        audio: false
       });
+      escaneoStream = stream;
       video.srcObject = stream;
-      video.play();
+      try { await video.play(); } catch (e) {}
 
       // Detener cámara al cerrar modal
-      const observer = new MutationObserver(() => {
-        if (!modalQR.classList.contains('active')) {
-          const tracks = stream.getTracks();
-          tracks.forEach(track => track.stop());
-          observer.disconnect();
-          if (video.parentNode) video.parentNode.removeChild(video);
-        }
+      escaneoObserver = new MutationObserver(() => {
+        if (!modalQR.classList.contains('active')) detenerEscaneoQR();
       });
-      observer.observe(modalQR, { attributes: true, attributeFilter: ['class'] });
+      escaneoObserver.observe(modalQR, { attributes: true, attributeFilter: ['class'] });
+
+      // Motor de decodificación: nativo (Android/Chrome) o jsQR de respaldo
+      let detector = null;
+      if (window.BarcodeDetector) {
+        try {
+          let qrSoportado = true;
+          if (BarcodeDetector.getSupportedFormats) {
+            const formatos = await BarcodeDetector.getSupportedFormats();
+            qrSoportado = formatos.includes('qr_code');
+          }
+          if (qrSoportado) detector = new BarcodeDetector({ formats: ['qr_code'] });
+        } catch (e) { detector = null; }
+      }
+      if (!detector) {
+        try { await cargarJsQR(); }
+        catch (e) { showToast('No se pudo cargar el lector de QR. Revisa tu conexión e inténtalo de nuevo.', 'danger'); }
+      }
+
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+      const leerConJsQR = (v) => {
+        if (!v.videoWidth || v.readyState < 2) return null;
+        const ancho = 480;
+        canvas.width = ancho;
+        canvas.height = Math.round((v.videoHeight / v.videoWidth) * ancho);
+        ctx.drawImage(v, 0, 0, canvas.width, canvas.height);
+        const px = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const cod = window.jsQR(px.data, px.width, px.height, { inversionAttempts: 'dontInvert' });
+        return cod ? cod.data : null;
+      };
+
+      const bucle = async () => {
+        if (!escaneoActivo || escaneoDetectado || !escaneoStream) return;
+        let texto = null;
+        try {
+          if (detector) {
+            const codigos = await detector.detect(video);
+            if (codigos && codigos.length) texto = codigos[0].rawValue;
+          } else if (window.jsQR) {
+            texto = leerConJsQR(video);
+          }
+        } catch (e) {
+          // Detector nativo no disponible en este navegador → jsQR
+          if (detector) {
+            detector = null;
+            cargarJsQR().catch(() => {});
+          }
+        }
+
+        if (texto) {
+          const destino = destinoDesdeQR(String(texto).trim());
+          if (destino) { alEscanearQR(destino); return; }
+          if (texto !== escaneoTextoPrevio) {
+            escaneoTextoPrevio = texto;
+            showToast('QR leído: ' + String(texto).substring(0, 80), 'info');
+          }
+        }
+        escaneoLoop = setTimeout(bucle, detector ? 40 : 110);
+      };
+
+      bucle();
     } catch (err) {
       console.error('Error accediendo a la cámara:', err);
-      video.remove();
+      detenerEscaneoQR();
       showToast('No se pudo acceder a la cámara. Asegúrate de otorgar permisos.', 'danger');
     }
   }
