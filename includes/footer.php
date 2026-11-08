@@ -2,7 +2,7 @@
   <footer class="footer">
     <div style="max-width: 1200px; margin: 0 auto;">
       <p class="footer__text">
-        &copy; <?= date('Y') ?> Semillitas del Futuro &mdash; Plataforma Educativa Primaria
+        &copy; 2026 Institución Educativa Primaria N.° 70090 Jayllihuaya &mdash; Jayllihuaya – Puno
       </p>
       <div class="footer__credits">
         <span>Compromiso con la educación ambiental y científica</span>

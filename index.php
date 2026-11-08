@@ -4,7 +4,7 @@
  * Ilustraciones Gráficas Infantiles · Mobile-First
  */
 
-$pageTitle = 'Semillitas del Futuro — Plataforma Educativa';
+$pageTitle = 'BIOHUERTO ESCOLAR — Pequeños guardianes de la naturaleza';
 $basePath  = '';
 include __DIR__ . '/includes/header.php';
 ?>
@@ -13,11 +13,11 @@ include __DIR__ . '/includes/header.php';
   <section class="hero" aria-label="Bienvenida">
     <div class="hero__badge">
       <img src="assets/img/logo-mascota.svg" alt="Semillita" style="width:20px; height:20px; display:inline-block;">
-      <span>Educación Primaria y Ambiental</span>
+      <span>Institución Educativa Primaria N.° 70090 Jayllihuaya</span>
     </div>
-    <h2 class="hero__heading">Aprende, cultiva y explora la naturaleza</h2>
+    <h2 class="hero__heading">Pequeños guardianes de la naturaleza</h2>
     <p class="hero__text">
-      Un espacio digital interactivo diseñado para niños de primaria y docentes. Descubre el mundo de las plantas, las ciencias y el cuidado de nuestro planeta.
+      Semillitas del Futuro: Cultivando una Escuela Sostenible · Descubre, aprende y diviértete cuidando nuestro entorno.
     </p>
   </section>
 

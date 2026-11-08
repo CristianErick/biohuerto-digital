@@ -4,8 +4,8 @@
  * Incluir al inicio de cada página: <?php include __DIR__ . '/../includes/header.php'; ?>
  */
 
-$pageTitle = $pageTitle ?? 'Semillitas del Futuro';
-$pageDesc  = $pageDesc  ?? 'Plataforma educativa para niños de primaria y docentes. Biohuerto, ciencias y recursos pedagógicos.';
+$pageTitle = $pageTitle ?? 'BIOHUERTO ESCOLAR — Pequeños guardianes de la naturaleza';
+$pageDesc  = $pageDesc  ?? 'Semillitas del Futuro: Cultivando una Escuela Sostenible · Institución Educativa Primaria N.° 70090 Jayllihuaya · Puno';
 $extraCSS  = $extraCSS  ?? [];
 
 // Ruta base

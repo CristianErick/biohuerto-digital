@@ -12,8 +12,8 @@ $pdo = getConnection();
 $stmt = $pdo->query('SELECT * FROM plantas ORDER BY fecha_registro DESC');
 $plantas = $stmt->fetchAll();
 
-$pageTitle = 'Biohuerto Escolar — Semillitas del Futuro';
-$pageDesc  = 'Explora las plantas del biohuerto escolar, aprende técnicas de siembra, riego y escanea los códigos QR.';
+$pageTitle = 'BIOHUERTO ESCOLAR — Pequeños guardianes de la naturaleza';
+$pageDesc  = 'Semillitas del Futuro: Cultivando una Escuela Sostenible · I.E.P. N.° 70090 Jayllihuaya · Explora las plantas del biohuerto escolar.';
 $isSubfolder = true;
 include __DIR__ . '/../includes/header.php';
 ?>
