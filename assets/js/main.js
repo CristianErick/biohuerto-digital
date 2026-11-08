@@ -223,12 +223,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const leerConJsQR = (v) => {
         if (!v.videoWidth || v.readyState < 2) return null;
-        const ancho = 480;
+        const ancho = Math.min(v.videoWidth, 800);
         canvas.width = ancho;
         canvas.height = Math.round((v.videoHeight / v.videoWidth) * ancho);
         ctx.drawImage(v, 0, 0, canvas.width, canvas.height);
         const px = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const cod = window.jsQR(px.data, px.width, px.height, { inversionAttempts: 'dontInvert' });
+        const cod = window.jsQR(px.data, px.width, px.height);
         return cod ? cod.data : null;
       };
 
