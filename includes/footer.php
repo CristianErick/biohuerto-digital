@@ -11,7 +11,7 @@
   </footer>
 
   <!-- JS Principal -->
-  <script src="<?= $basePath ?? '' ?>assets/js/main.js"></script>
+  <script src="<?= $basePath ?? '' ?>assets/js/main.js?v=20261108c"></script>
 
   <?php if (!empty($extraJS)): ?>
     <?php foreach ($extraJS as $js): ?>

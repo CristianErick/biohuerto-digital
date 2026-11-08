@@ -14,6 +14,9 @@
     }
     respond @uploads_php 404
 
+    # JS siempre fresco (evita caché con versiones viejas del escáner)
+    header /assets/js/* Cache-Control "no-cache"
+
     # Sirve archivos estáticos y ejecuta PHP (incluye index.php por carpeta)
     php_server
 }
