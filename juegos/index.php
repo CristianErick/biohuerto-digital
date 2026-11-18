@@ -27,14 +27,27 @@ $isSubfolder = true;
 include __DIR__ . '/../includes/header.php';
 ?>
 
-<link rel="stylesheet" href="css/juegos.css?v=20261117b">
+<link rel="stylesheet" href="css/juegos.css?v=20261117c">
 
 <style>
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
   .juegos-page-container {
     max-width: 768px;
     margin: 0 auto;
     padding: 0 var(--space-md) var(--space-2xl);
     box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 480px) {
+    .juegos-page-container {
+      padding: 0 8px var(--space-xl);
+    }
   }
 
   .juegos-hero {
@@ -498,7 +511,7 @@ include __DIR__ . '/../includes/header.php';
 
 <!-- Scripts de Sonidos y Motor de Juegos -->
 <script src="../assets/js/sounds.js?v=20261117"></script>
-<script src="js/juegos-engine.js?v=20261117b"></script>
+<script src="js/juegos-engine.js?v=20261117c"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {

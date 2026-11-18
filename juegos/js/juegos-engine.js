@@ -549,7 +549,7 @@ class GameManager {
           </ul>
         </div>
         <p style="font-weight:800; font-size:0.9rem; text-align:center; margin-bottom:8px;">¿De qué cultivo o amigo se trata?</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;" id="adivinaBtns">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:8px; width:100%; box-sizing:border-box;" id="adivinaBtns">
           ${opcionesMezcladas.map(opt => `
             <button type="button" class="btn btn--outline btn-opt" data-val="${opt}">${opt}</button>
           `).join('')}
@@ -809,7 +809,7 @@ class GameManager {
           <button type="button" class="part-chip" data-cat="${c.cat}">${c.nombre}</button>
         `).join('')}
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; width:100%; box-sizing:border-box;">
         <div class="water-box" data-cat="hoja" style="border-color:#10b981;">
           <div class="water-box__head" style="color:#059669;">🍃 HOJAS</div>
           <div class="box-items"></div>
@@ -1288,7 +1288,7 @@ class GameManager {
       </p>
 
       <div style="display:flex; justify-content:center; margin-bottom:12px;">
-        <div class="crossword-grid" style="grid-template-columns:repeat(${crucigramaElegido.cols}, 36px);">
+        <div class="crossword-grid" style="grid-template-columns:repeat(${crucigramaElegido.cols}, clamp(26px, 7vw, 36px));">
           ${crucigramaElegido.grid.map(fila => fila.map(celda => {
             if (celda.b) {
               return `<div class="cw-cell black"></div>`;
