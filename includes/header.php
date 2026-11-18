@@ -52,7 +52,7 @@ require_once __DIR__ . '/icons.php';
       <!-- Logo a la izquierda (visible siempre) -->
       <a href="<?= $basePath ?>index.php" class="header__brand desktop-logo">
         <span class="header__logo-badge" style="background:transparent; padding:0; overflow:hidden;">
-          <img src="<?= $basePath ?>assets/img/logo-mascota.svg" alt="Semillitas Logo" style="width:38px; height:38px;">
+          <img src="<?= $basePath ?>assets/img/logo-institucion.png" alt="I.E.P. N.° 70090 Jayllihuaya" style="width:40px; height:40px; object-fit:contain;">
         </span>
         <div>
           <h1 class="header__title">Semillitas</h1>
@@ -126,7 +126,7 @@ require_once __DIR__ . '/icons.php';
       <!-- Logo a la derecha solo en móvil -->
       <a href="<?= $basePath ?>index.php" class="header__brand mobile-logo-right">
         <span class="header__logo-badge" style="background:transparent; padding:0; overflow:hidden;">
-          <img src="<?= $basePath ?>assets/img/logo-mascota.svg" alt="Semillitas Logo" style="width:38px; height:38px;">
+          <img src="<?= $basePath ?>assets/img/logo-institucion.png" alt="I.E.P. N.° 70090 Jayllihuaya" style="width:40px; height:40px; object-fit:contain;">
         </span>
         <div>
           <h1 class="header__title">Semillitas</h1>

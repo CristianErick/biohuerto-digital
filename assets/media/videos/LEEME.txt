@@ -1,0 +1,16 @@
+ESTRUCTURA DE ARCHIVOS DE VIDEO ESTANDARIZADOS:
+Semillitas del Futuro — I.E.P. N.° 70090 Jayllihuaya
+
+Formatos recomendados: .mp4 (codec H.264 / AAC, optimizado para reproducción web móvil)
+
+1.  zanahoria_video.mp4  (Zani la Zanahoria)
+2.  lechuga_video.mp4    (Luchi la Lechuga)
+3.  acelga_video.mp4     (Celguita la Acelga)
+4.  tomate_video.mp4     (Tomatín el Tomate)
+5.  cebolla_video.mp4    (Cebollín la Cebolla)
+6.  rabanito_video.mp4   (Rabani el Rabanito)
+7.  espinaca_video.mp4   (Espi la Espinaca)
+8.  fresa_video.mp4      (Fresita la Fresa)
+9.  aguaymanto_video.mp4 (Aguaymantito)
+10. beterraga_video.mp4  (Betito la Beterraga)
+11. gotita_video.mp4     (Gotita de Agua)

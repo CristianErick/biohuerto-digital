@@ -12,6 +12,7 @@ repositorio/uploads/*
 !repositorio/uploads/.htaccess
 
 # Temporales
+vids/
 *.log
 *.tmp
 .DS_Store

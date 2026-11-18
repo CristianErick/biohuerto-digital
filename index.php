@@ -12,7 +12,7 @@ include __DIR__ . '/includes/header.php';
   <!-- ═══ HERO PRINCIPAL ═══ -->
   <section class="hero" aria-label="Bienvenida">
     <div class="hero__badge">
-      <img src="assets/img/logo-mascota.svg" alt="Semillita" style="width:20px; height:20px; display:inline-block;">
+      <img src="assets/img/logo-institucion.png" alt="I.E.P. N.° 70090 Jayllihuaya" style="width:24px; height:24px; display:inline-block; vertical-align:middle; object-fit:contain;">
       <span>Institución Educativa Primaria N.° 70090 Jayllihuaya</span>
     </div>
     <h2 class="hero__heading">Pequeños guardianes de la naturaleza</h2>

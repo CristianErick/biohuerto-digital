@@ -105,9 +105,10 @@ define('MAX_FILE_SIZE', (int) env('MAX_FILE_SIZE', (string) (5 * 1024 * 1024)));
 /**
  * Obtener conexión PDO reutilizable.
  *
+ * @param bool $throwException Si es true, lanza PDOException en vez de terminar con die()
  * @return PDO
  */
-function getConnection(): PDO
+function getConnection(bool $throwException = false): PDO
 {
     static $pdo = null;
 
@@ -116,6 +117,10 @@ function getConnection(): PDO
             $pdo = new PDO(db_dsn(), DB_USER, DB_PASS, db_options());
         } catch (PDOException $e) {
             error_log('Semillitas DB: ' . $e->getMessage());
+
+            if ($throwException) {
+                throw $e;
+            }
 
             http_response_code(500);
             if (env_bool('APP_DEBUG', false)) {
@@ -126,4 +131,18 @@ function getConnection(): PDO
     }
 
     return $pdo;
+}
+
+/**
+ * Obtener conexión PDO segura que retorna null si falla la conexión.
+ *
+ * @return PDO|null
+ */
+function getSafeConnection(): ?PDO
+{
+    try {
+        return getConnection(true);
+    } catch (Throwable $e) {
+        return null;
+    }
 }

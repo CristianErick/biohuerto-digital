@@ -1,0 +1,16 @@
+ESTRUCTURA DE ARCHIVOS DE AUDIO ESTANDARIZADOS:
+Semillitas del Futuro — I.E.P. N.° 70090 Jayllihuaya
+
+Formatos recomendados: .mp3 / .ogg (audio comprimido para web móvil)
+
+1.  zanahoria_audio.mp3  (Zani la Zanahoria)
+2.  lechuga_audio.mp3    (Luchi la Lechuga)
+3.  acelga_audio.mp3     (Celguita la Acelga)
+4.  tomate_audio.mp3     (Tomatín el Tomate)
+5.  cebolla_audio.mp3    (Cebollín la Cebolla)
+6.  rabanito_audio.mp3   (Rabani el Rabanito)
+7.  espinaca_audio.mp3   (Espi la Espinaca)
+8.  fresa_audio.mp3      (Fresita la Fresa)
+9.  aguaymanto_audio.mp3 (Aguaymantito)
+10. beterraga_audio.mp3  (Betito la Beterraga)
+11. gotita_audio.mp3     (Gotita de Agua)

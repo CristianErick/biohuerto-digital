@@ -10,7 +10,8 @@
     </div>
   </footer>
 
-  <!-- JS Principal -->
+  <!-- JS Principal y Efectos de Sonido -->
+  <script src="<?= $basePath ?? '' ?>assets/js/sounds.js?v=20261117"></script>
   <script src="<?= $basePath ?? '' ?>assets/js/main.js?v=20261108d"></script>
 
   <?php if (!empty($extraJS)): ?>
